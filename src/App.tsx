@@ -2,16 +2,8 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { useInterval } from '@mantine/hooks'
+import { isoDate } from './isoDate'
 import dayjs, { Dayjs } from 'dayjs'
-import timezone from 'dayjs/plugin/timezone'
-import utc from 'dayjs/plugin/utc'
-import isoWeek from 'dayjs/plugin/isoWeek'
-import dayOfYear from 'dayjs/plugin/dayOfYear'
-
-dayjs.extend(isoWeek)
-dayjs.extend(utc)
-dayjs.extend(dayOfYear)
-// dayjs.extend(timezone)
 
 /**
  * returns `new Date()` every interval
@@ -33,30 +25,10 @@ export const useDayjs = (interval: number = 1000): Dayjs => {
   return dayjs(date)
 }
 
-export const pad = (n: number, length: number): string =>
-  n.toString().padStart(length, '0')
-
-export const IsoDate = (date: Dayjs | Date) => {
-  const d = dayjs(date)
-
-  const week = pad(d.isoWeek(), 2)
-  const weekDay = pad(d.isoWeekday(), 2)
-  const weekYear = d.isoWeekYear()
-  const dayOfYear = pad(d.dayOfYear(), 3)
-
-  return {
-    date: d.format('YYYY-MM-DD'),
-    datetime: d.toISOString(),
-    week: `${weekYear}-W${week}`,
-    weekday: `${weekYear}-W${week}-${weekDay}`,
-    ordinal: `${weekYear}-${dayOfYear}`,
-  }
-}
-
 export const App = () => {
   const dayjs = useDayjs()
   const utc = dayjs.utc(true)
-  const { date, datetime, week, weekday, ordinal } = IsoDate(dayjs)
+  const { date, datetime, week, weekday, ordinal } = isoDate(dayjs)
 
   return (
     <div className='App'>
