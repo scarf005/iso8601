@@ -4,6 +4,7 @@ import './App.css'
 import { useInterval } from '@mantine/hooks'
 import { isoDate } from './isoDate'
 import dayjs, { Dayjs } from 'dayjs'
+import { useTitle } from './useTitle'
 
 /**
  * returns `new Date()` every interval
@@ -27,8 +28,8 @@ export const useDayjs = (interval: number = 1000): Dayjs => {
 
 export const App = () => {
   const dayjs = useDayjs()
-  const utc = dayjs.utc(true)
-  const { date, datetime, week, weekday, ordinal } = isoDate(dayjs)
+  const { date, time, datetime, week, weekday, ordinal } = isoDate(dayjs)
+  useTitle(time)
 
   return (
     <div className='App'>
