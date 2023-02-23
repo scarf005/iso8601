@@ -31,6 +31,10 @@ MIT License.
 
 see [LICENSE](LICENSE) for details.
 
+### Credits
+
+`src/assets/clock-hour-{N}.svg` are from [tabler icons](https://tabler-icons.io). see [LICENSE](src/assets/LICENSE) for details.
+
 ### Disclaimer
 
 - This repository is not associated with the ISO 8601 standard.
