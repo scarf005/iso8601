@@ -2,7 +2,7 @@
 
 # ISO 8601
 
-[![](demo/screenshot.png)][pages]
+[![](demo/page.png)][pages]
 
 datetime display in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)
 
