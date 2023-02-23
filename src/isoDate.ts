@@ -11,28 +11,30 @@ dayjs.extend(utc)
 dayjs.extend(dayOfYear)
 dayjs.extend(advancedFormat)
 
-/**
- * left pad number with `0`.
- * `n - length` is the number of `0`s to pad
- *
- * @param n number to pad
- * @param length maximum length of number
- */
-export const pad = (n: number, length: number): string =>
-  n.toString().padStart(length, '0')
+type IsoDates = {
+  date: string
+  time: string
+  datetime: string
+  week: string
+  weekday: string
+  ordinal: string
+}
 
-export const isoDate = (date: Dayjs | Date) => {
-  const d = dayjs(date)
+export const isoDate = (input: Dayjs | Date): IsoDates => {
+  const d = dayjs(input)
 
   const isoWeekDay = d.isoWeekday()
   const weekYear = d.isoWeekYear()
-  const dayOfYear = pad(d.dayOfYear(), 3)
-
+  const dayOfYear = d.dayOfYear().toString().padStart(3, "0")
   const week = d.format('GGGG-[W]WW')
+  const date = d.format('YYYY-MM-DD')
+  const time = d.format('HH:mm:ss')
+  const zone = d.format('Z')
 
   return {
-    date: d.format('YYYY-MM-DD'),
-    datetime: d.format('YYYY-MM-DDTHH:mm:ssZ'),
+    date,
+    time,
+    datetime: `${date}T${time}${zone}`,
     week,
     weekday: `${week}-${isoWeekDay}`,
     ordinal: `${weekYear}-${dayOfYear}`,
