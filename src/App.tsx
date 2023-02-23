@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
 import { useInterval } from '@mantine/hooks'
 import { isoDate } from './isoDate'
 import dayjs, { Dayjs } from 'dayjs'
+import { clockHours } from './ClockIcon'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import './App.css'
 
 /**
  * returns `new Date()` every interval
@@ -27,17 +28,22 @@ export const useDayjs = (interval: number = 1000): Dayjs => {
 
 export const App = () => {
   const dayjs = useDayjs()
-  const utc = dayjs.utc(true)
-  const { date, datetime, week, weekday, ordinal } = isoDate(dayjs)
+  const { date, time, datetime, week, weekday, ordinal } = isoDate(dayjs)
 
   return (
-    <div className='App'>
-      <h1>{date}</h1>
-      <h2>{datetime}</h2>
-      <h3>{week}</h3>
-      <h4>{weekday}</h4>
-      <h5>{ordinal}</h5>
-    </div>
+    <HelmetProvider>
+      <Helmet>
+        <title>{time}</title>
+        <link rel='icon' type='image/svg+xml' href={clockHours(dayjs.hour())} />
+      </Helmet>
+      <div className='App'>
+        <h1>{date}</h1>
+        <h2>{datetime}</h2>
+        <h3>{week}</h3>
+        <h4>{weekday}</h4>
+        <h5>{ordinal}</h5>
+      </div>
+    </HelmetProvider>
   )
 }
 
