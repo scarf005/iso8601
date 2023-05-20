@@ -36,13 +36,13 @@ export const App = () => {
         <title>{time}</title>
         <link rel='icon' type='image/svg+xml' href={clockHours(dayjs.hour())} />
       </Helmet>
-      <div className='App'>
+      <main className='App'>
         <h1>{date}</h1>
         <h2>{datetime}</h2>
         <h3>{week}</h3>
         <h4>{weekday}</h4>
         <h5>{ordinal}</h5>
-      </div>
+      </main>
     </HelmetProvider>
   )
 }
