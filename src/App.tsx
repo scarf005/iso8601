@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { useInterval } from '@mantine/hooks'
-import { isoDate } from './isoDate'
 import dayjs, { Dayjs } from 'dayjs'
-import { clockHours } from './ClockIcon'
+import { useInterval } from '@mantine/hooks'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+
+import { isoDate } from './isoDate.ts'
+import { clockHours } from './ClockIcon.tsx'
 import './App.css'
 
 /**

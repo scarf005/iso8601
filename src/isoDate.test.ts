@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { isoDate } from './isoDate'
+import { isoDate } from './isoDate.ts'
 import dayjs from 'dayjs'
 
 const simpleDatetime = '2023-02-02T11:09:37'

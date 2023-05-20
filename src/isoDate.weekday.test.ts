@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
-import { isoDate } from './isoDate'
 import dayjs from 'dayjs'
+
+import { isoDate } from './isoDate.ts'
 
 const days = [...Array(7).keys()]
   .map(x => dayjs(`2023-02-${x + 6}`))
