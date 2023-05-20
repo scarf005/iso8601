@@ -32,7 +32,7 @@ export const App = () => {
 
   return (
     <HelmetProvider>
-      <Helmet>
+      <Helmet defer={false}>
         <title>{time}</title>
         <link rel='icon' type='image/svg+xml' href={clockHours(dayjs.hour())} />
       </Helmet>
