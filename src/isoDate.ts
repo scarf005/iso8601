@@ -11,14 +11,10 @@ dayjs.extend(utc)
 dayjs.extend(dayOfYear)
 dayjs.extend(advancedFormat)
 
-type IsoDates = {
-  date: string
-  time: string
-  datetime: string
-  week: string
-  weekday: string
-  ordinal: string
-}
+type IsoDates = Record<
+  "date" | "time" | "datetime" | "week" | "weekday" | "ordinal",
+  string
+>
 
 export const isoDate = (input: Dayjs | Date): IsoDates => {
   const d = dayjs(input)
