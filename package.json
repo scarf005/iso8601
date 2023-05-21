@@ -12,21 +12,21 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@mantine/hooks": "^5.10.2",
+    "@mantine/hooks": "^6.0.11",
     "dayjs": "^1.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.9",
-    "@vitejs/plugin-react-swc": "^3.0.0",
-    "@vitest/ui": "^0.28.3",
-    "type-fest": "^3.5.4",
-    "typescript": "^4.9.3",
-    "vite": "^4.0.0",
-    "vitest": "^0.28.3"
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react-swc": "^3.3.1",
+    "@vitest/ui": "^0.31.1",
+    "type-fest": "^3.11.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.8",
+    "vitest": "^0.31.1"
   }
 }
