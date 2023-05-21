@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import dayjs, { Dayjs } from 'dayjs'
-import { useInterval } from '@mantine/hooks'
-import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { useEffect, useState } from "react"
+import dayjs, { Dayjs } from "dayjs"
+import { useInterval } from "@mantine/hooks"
+import { Helmet, HelmetProvider } from "react-helmet-async"
 
-import { isoDate } from './isoDate.ts'
-import { clockHours } from './ClockIcon.tsx'
-import './App.css'
+import { isoDate } from "./isoDate.ts"
+import { clockHours } from "./ClockIcon.tsx"
+import "./App.css"
 
 /**
  * returns `new Date()` every interval
@@ -35,9 +35,9 @@ export const App = () => {
     <HelmetProvider>
       <Helmet defer={false}>
         <title>{time}</title>
-        <link rel='icon' type='image/svg+xml' href={clockHours(dayjs.hour())} />
+        <link rel="icon" type="image/svg+xml" href={clockHours(dayjs.hour())} />
       </Helmet>
-      <main className='App'>
+      <main className="App">
         <h1>{date}</h1>
         <h2>{datetime}</h2>
         <h3>{week}</h3>
