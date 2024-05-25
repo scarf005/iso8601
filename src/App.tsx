@@ -1,7 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async"
 
 import { isoDate } from "./isoDate.ts"
-import { clockHours } from "./ClockIcon.tsx"
 import { useDayjs } from "./useDayjs.tsx"
 
 export const App = () => {
@@ -12,7 +11,11 @@ export const App = () => {
     <HelmetProvider>
       <Helmet defer={false}>
         <title>{time}</title>
-        <link rel="icon" type="image/svg+xml" href={clockHours(dayjs.hour())} />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href={`/iso8601/clock-hour-${(dayjs.hour() - 1) % 12 + 1}.svg`}
+        />
       </Helmet>
       <main>
         <h1>{date}</h1>
