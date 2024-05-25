@@ -40,3 +40,5 @@ details.
 
 - This repository is not associated with the ISO 8601 standard.
 - This software has absolutely no warranty.
+
+[pages]: http://localhost:5173/iso8601
