@@ -1,7 +1,7 @@
 import { Helmet, HelmetProvider } from "react-helmet-async"
 
 import { isoDate } from "./isoDate.ts"
-import { useDayjs } from "./useDayjs.tsx"
+import { useDayjs } from "./useDayjs.ts"
 
 export const App = () => {
   const dayjs = useDayjs()
