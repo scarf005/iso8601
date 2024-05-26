@@ -15,6 +15,8 @@ export default defineConfig({
 		sourcemap: true,
 		target: "esnext",
 		rollupOptions: {
+			preserveEntrySignatures: "strict",
+			output: { preserveModules: true },
 			external: [/https.*/],
 		},
 	},

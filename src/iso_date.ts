@@ -1,18 +1,25 @@
-import { dayOfYear, weekOfYear } from "https://esm.sh/jsr/@std/datetime@0.224.0"
+import { dayOfYear, format, weekOfYear } from "@std/datetime@0.224.0"
 
-const p2 = (n: number) => n.toString().padStart(2, "0")
+const timeZoneOffset = (t: Date) => {
+	const offset = t.getTimezoneOffset()
+	const hours = Math.abs(Math.floor(offset / 60)).toString().padStart(2, "0")
+	const minutes = Math.abs(offset % 60).toString().padStart(2, "0")
+	const sign = offset < 0 ? "+" : "-"
 
-export const isoDatetime = (t: Date) => t.toISOString()
+	return `${sign}${hours}:${minutes}`
+}
 
-/** `YYYY-MM-DD` */
-export const isoDate = (t: Date) =>
-	`${t.getFullYear()}-${p2(t.getMonth() + 1)}-${p2(t.getDate())}`
+export const isoDatetime = (t: Date) =>
+	format(t, "yyyy-MM-ddTHH:mm:ss") + timeZoneOffset(t)
 
-export const utcTime = (t: Date) =>
-	[t.getUTCHours(), t.getUTCMinutes(), t.getUTCSeconds()].map(p2).join(":")
+export const isoDate = (t: Date) => format(t, "yyyy-MM-dd")
+
+export const isoTime = (t: Date) => format(t, "HH:mm:ss")
 
 export const isoWeek = (t: Date) => `${t.getFullYear()}-W${weekOfYear(t)}`
+
 export const isoWeekday = (t: Date) =>
 	`${t.getFullYear()}-W${weekOfYear(t)}-${(t.getDay() + 6) % 7 + 1}`
+
 export const isoOrdinal = (t: Date) =>
 	`${t.getFullYear()}-${dayOfYear(t).toString().padStart(3, "0")}`

@@ -10,23 +10,22 @@ datetime display in
 ## How to run
 
 ```sh
-git clone https://github.com/scarf005/ iso8601.git
+git clone https://github.com/scarf005/iso8601.git
 cd iso8601
-pnpm install
-pnpm run dev
+deno task dev
 ```
 
 ### How to test
 
 ```sh
-pnpm run test
+deno test
 ```
 
 ## About
 
 ### License
 
-MIT License.
+AGPL-3.0.
 
 see [LICENSE](LICENSE) for details.
 
@@ -41,4 +40,4 @@ details.
 - This repository is not associated with the ISO 8601 standard.
 - This software has absolutely no warranty.
 
-[pages]: http://localhost:5173/iso8601
+[pages]: http://scarf005.github.io/iso8601

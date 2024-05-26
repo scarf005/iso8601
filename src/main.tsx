@@ -5,9 +5,9 @@ import {
 	isoDate,
 	isoDatetime,
 	isoOrdinal,
+	isoTime,
 	isoWeek,
 	isoWeekday,
-	utcTime,
 } from "./iso_date.ts"
 import { html } from "./preact.ts"
 
@@ -41,9 +41,9 @@ render(
 )
 
 effect(() => {
-	document.querySelector("head title")!.innerHTML = utcTime(now.value)
+	document.querySelector("head title")!.innerHTML = isoTime(now.value)
 	document.querySelector("head link[rel=icon]")?.setAttribute(
 		"href",
-		`/iso8601/clock-hour-${(now.value.getUTCHours() - 1) % 12 + 1}.svg`,
+		`/iso8601/clock-hour-${(now.value.getHours() - 1) % 12 + 1}.svg`,
 	)
 })

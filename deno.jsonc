@@ -1,9 +1,9 @@
 {
 	"tasks": {
-        "vite": "deno run -A npm:vite@5.2.11 $TASK . --config vite.config.ts",
+		"vite": "deno run -A npm:vite@5.2.11 $TASK . --config vite.config.mts ",
 		"dev": "TASK=dev deno task vite",
 		"build": "TASK=build deno task vite",
-        "preview": "TASK=preview deno task vite"
+		"preview": "TASK=preview deno task vite"
 	},
 	"fmt": {
 		"semiColons": false,
@@ -13,6 +13,7 @@
 		"preact": "https://esm.sh/preact@10.19.3",
 		"preact/": "https://esm.sh/preact@10.19.3/",
 		"@preact/signals": "https://esm.sh/@preact/signals@1.2.3?deps=preact@10.19.3",
-		"htm": "https://esm.sh/htm@3.1.1"
+		"htm": "https://esm.sh/htm@3.1.1",
+		"@std/": "https://esm.sh/jsr/@std/"
 	}
 }
